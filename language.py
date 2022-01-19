@@ -42,8 +42,9 @@ Parameters: 2D list of strs
 Returns: int
 '''
 def getCorpusLength(corpus):
+    total_length =sum(len(Row) for Row in corpus)
     
-    return 
+    return total_length 
 
 
 '''
@@ -313,8 +314,7 @@ if __name__ == "__main__":
     # test.runWeek1()
     test.testLoadBook()
     test.testGetCorpusLength()
-    test.testBuildVocabulary()
-    test.testCountUnigrams()
+   
 
     ## Uncomment these for Week 2 ##
 """
