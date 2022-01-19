@@ -43,7 +43,6 @@ Returns: int
 '''
 def getCorpusLength(corpus):
     total_length =sum(len(Row) for Row in corpus)
-    
     return total_length 
 
 
@@ -54,10 +53,8 @@ Parameters: 2D list of strs
 Returns: list of strs
 '''
 def buildVocabulary(corpus):
-    
-  
-    
-    return 
+    result= list(set(i for j in corpus for i in j))
+    return result
 
 
 '''
@@ -67,10 +64,7 @@ Parameters: 2D list of strs
 Returns: dict mapping strs to ints
 '''
 def countUnigrams(corpus):
-   
-
-
-    return 
+   return 
 
 
 '''
@@ -314,7 +308,7 @@ if __name__ == "__main__":
     # test.runWeek1()
     test.testLoadBook()
     test.testGetCorpusLength()
-   
+    test.testBuildVocabulary()   
 
     ## Uncomment these for Week 2 ##
 """
