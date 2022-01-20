@@ -64,7 +64,14 @@ Parameters: 2D list of strs
 Returns: dict mapping strs to ints
 '''
 def countUnigrams(corpus):
-   return 
+    nuber_c={}
+    new_v=list(i for j in corpus for i in j)
+    
+    for i in new_v:
+        if i not in nuber_c:
+            nuber_c[i]= new_v.count(i)
+    print(nuber_c)        
+    return nuber_c
 
 
 '''
@@ -306,9 +313,10 @@ if __name__ == "__main__":
     # test.week1Tests()
     # print("\n" + "#"*15 + " WEEK 1 OUTPUT " + "#" * 15 + "\n")
     # test.runWeek1()
-    test.testLoadBook()
-    test.testGetCorpusLength()
-    test.testBuildVocabulary()   
+    # test.testLoadBook()
+    # test.testGetCorpusLength()
+    # test.testBuildVocabulary()
+    test.testCountUnigrams()   
 
     ## Uncomment these for Week 2 ##
 """
