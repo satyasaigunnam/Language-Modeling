@@ -7,7 +7,9 @@ Roll No:
 from enum import unique
 from itertools import count
 from pickle import EMPTY_LIST
+from re import I
 from sqlite3 import Row
+from tkinter.tix import COLUMN
 from unittest import result
 import language_tests as test
 
@@ -81,9 +83,10 @@ Parameters: 2D list of strs
 Returns: list of strs
 '''
 def getStartWords(corpus):
-    
-    return
-
+    new_list=[] 
+    for i in corpus: 
+        new_list.append(i[0]) 
+    return list(set(new_list))
 
 '''
 countStartWords(corpus)
@@ -317,7 +320,7 @@ if __name__ == "__main__":
     # test.testLoadBook()
     # test.testGetCorpusLength()
     # test.testBuildVocabulary()
-    test.testCountUnigrams()  
+    # test.testCountUnigrams()  
     test.testGetStartWords() 
 
     ## Uncomment these for Week 2 ##
