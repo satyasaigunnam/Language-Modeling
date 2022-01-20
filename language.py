@@ -6,7 +6,7 @@ Roll No:
 
 from enum import unique
 from itertools import count
-from pickle import EMPTY_LIST
+from pickle import APPEND, EMPTY_LIST
 from re import I
 from sqlite3 import Row
 from tkinter.tix import COLUMN
@@ -95,8 +95,16 @@ Parameters: 2D list of strs
 Returns: dict mapping strs to ints
 '''
 def countStartWords(corpus):
-    return
-
+    new_count ={}
+    emp_list=[]
+    
+    for i in corpus:
+        emp_list.append(i[0])
+        
+        for j in emp_list:
+            new_count[j]= emp_list.count(j)
+        
+    return new_count
 
 '''
 countBigrams(corpus)
@@ -321,7 +329,8 @@ if __name__ == "__main__":
     # test.testGetCorpusLength()
     # test.testBuildVocabulary()
     # test.testCountUnigrams()  
-    test.testGetStartWords() 
+    # test.testGetStartWords() 
+    test.testCountStartWords()
 
     ## Uncomment these for Week 2 ##
 """
