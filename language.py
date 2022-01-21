@@ -113,9 +113,19 @@ Parameters: 2D list of strs
 Returns: dict mapping strs to (dicts mapping strs to ints)
 '''
 def countBigrams(corpus):
-    
-
-    return 
+    new_dist={}
+    for p in range (len(corpus)):
+        for j in range (len(corpus[p])-1):
+            ver = corpus[p][j]
+            ver2 = corpus[p][j+1]
+            if ver not in new_dist:
+                new_dist[ver]={}
+            if ver2 not in new_dist[ver]:
+                new_dist[ver][ver2]=0
+            new_dist[ver][ver2]+=1
+            
+            
+    return new_dist
 
 
 ### WEEK 2 ###
@@ -127,6 +137,7 @@ Parameters: list of strs
 Returns: list of floats
 '''
 def buildUniformProbs(unigrams):
+    
     return
 
 
