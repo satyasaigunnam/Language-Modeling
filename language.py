@@ -113,7 +113,9 @@ Parameters: 2D list of strs
 Returns: dict mapping strs to (dicts mapping strs to ints)
 '''
 def countBigrams(corpus):
-    return
+    
+
+    return 
 
 
 ### WEEK 2 ###
@@ -331,6 +333,7 @@ if __name__ == "__main__":
     # test.testCountUnigrams()  
     # test.testGetStartWords() 
     test.testCountStartWords()
+    test.testCountBigrams()
 
     ## Uncomment these for Week 2 ##
 """
