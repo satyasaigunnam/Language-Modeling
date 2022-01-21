@@ -153,7 +153,13 @@ Parameters: list of strs ; dict mapping strs to ints ; int
 Returns: list of floats
 '''
 def buildUnigramProbs(unigrams, unigramCounts, totalCount):
-    return
+    new_list = []
+    for i in unigrams:
+        for j in  unigramCounts:
+            if i==j:
+                new_list.append(unigramCounts[j]/totalCount)
+                
+    return new_list
 
 
 '''
@@ -163,6 +169,7 @@ Parameters: dict mapping strs to ints ; dict mapping strs to (dicts mapping strs
 Returns: dict mapping strs to (dicts mapping strs to (lists of values))
 '''
 def buildBigramProbs(unigramCounts, bigramCounts):
+    
     return
 
 
@@ -346,11 +353,13 @@ if __name__ == "__main__":
     # test.testLoadBook()
     # test.testGetCorpusLength()
     # test.testBuildVocabulary()
-    test.testCountUnigrams()  
+    # test.testCountUnigrams()  
     # test.testGetStartWords() 
     # test.testCountStartWords()
     # test.testCountBigrams()
-    # test.testBuildUniformProbs()
+    #test.testBuildUniformProbs()
+    test.testBuildUnigramProbs()
+    
 
     ## Uncomment these for Week 2 ##
 """
