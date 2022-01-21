@@ -68,6 +68,7 @@ Returns: dict mapping strs to ints
 def countUnigrams(corpus):
     nuber_c={}
     new_v=list(i for j in corpus for i in j)
+    print
     
     for i in new_v:
         if i not in nuber_c:
@@ -137,8 +138,12 @@ Parameters: list of strs
 Returns: list of floats
 '''
 def buildUniformProbs(unigrams):
-    
-    return
+    new_list =[]
+    r_len = len(unigrams)
+    for i in unigrams:
+        new_list.append(1/r_len)
+        print(new_list)
+    return new_list
 
 
 '''
@@ -341,10 +346,11 @@ if __name__ == "__main__":
     # test.testLoadBook()
     # test.testGetCorpusLength()
     # test.testBuildVocabulary()
-    # test.testCountUnigrams()  
+    test.testCountUnigrams()  
     # test.testGetStartWords() 
-    test.testCountStartWords()
-    test.testCountBigrams()
+    # test.testCountStartWords()
+    # test.testCountBigrams()
+    # test.testBuildUniformProbs()
 
     ## Uncomment these for Week 2 ##
 """
