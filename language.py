@@ -206,9 +206,23 @@ generateTextFromUnigrams(count, words, probs)
 Parameters: int ; list of strs ; list of floats
 Returns: str
 '''
-from random import choices
+from random import choices, random
 def generateTextFromUnigrams(count, words, probs):
-    return
+    new_list=[]
+    str1=""
+    
+    i =0
+    while i < count:
+        randomtext= choices(words,probs)
+        new_list += randomtext
+        i+=1
+    for ele in new_list:
+        str1= str1 +" "+ ele
+    
+
+  
+
+    return str1
 
 
 '''
@@ -377,7 +391,8 @@ if __name__ == "__main__":
     #test.testBuildUniformProbs()
     # test.testBuildUnigramProbs()
     # test.testBuildBigramProbs()
-    test.testGetTopWords()
+    # test.testGetTopWords()
+    test.testGenerateTextFromUnigrams()
     
 
     ## Uncomment these for Week 2 ##
