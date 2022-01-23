@@ -169,8 +169,17 @@ Parameters: dict mapping strs to ints ; dict mapping strs to (dicts mapping strs
 Returns: dict mapping strs to (dicts mapping strs to (lists of values))
 '''
 def buildBigramProbs(unigramCounts, bigramCounts):
+    new_dict={}
     
-    return
+    for i in bigramCounts:
+        words =[]
+        probs =[]
+        for j in bigramCounts[i]:
+            words.append(j)
+            probs.append(bigramCounts[i][j]/unigramCounts[i])
+            new_dict[i]={"words":words, "probs": probs}
+
+    return new_dict
 
 
 '''
@@ -180,7 +189,15 @@ Parameters: int ; list of strs ; list of floats ; list of strs
 Returns: dict mapping strs to floats
 '''
 def getTopWords(count, words, probs, ignoreList):
-    return
+   
+    new_dict= dict(zip(words,probs )) 
+    sorted_dict=dict(sorted(new_dict.items(),key=lambda x:x[1],reverse=True))
+    
+    dicts={}
+    for key,values in sorted_dict.items():
+        if key not in ignoreList and len(dicts)<count:
+            dicts[key]=values
+    return dicts
 
 
 '''
@@ -358,7 +375,9 @@ if __name__ == "__main__":
     # test.testCountStartWords()
     # test.testCountBigrams()
     #test.testBuildUniformProbs()
-    test.testBuildUnigramProbs()
+    # test.testBuildUnigramProbs()
+    # test.testBuildBigramProbs()
+    test.testGetTopWords()
     
 
     ## Uncomment these for Week 2 ##
