@@ -4,6 +4,11 @@ Name:
 Roll No:
 """
 
+from enum import unique
+from itertools import count
+from pickle import EMPTY_LIST
+from sqlite3 import Row
+from unittest import result
 import language_tests as test
 
 project = "Language" # don't edit this
@@ -17,7 +22,17 @@ Parameters: str
 Returns: 2D list of strs
 '''
 def loadBook(filename):
-    return
+    emlist=[]
+    ins= open(filename,"r").read()
+    list=ins.split('\n')
+    for i in list:
+        r = i.split(" ")
+        if r!=['']:           
+            emlist.append(r)
+    
+        
+    
+    return emlist
 
 
 '''
@@ -27,7 +42,8 @@ Parameters: 2D list of strs
 Returns: int
 '''
 def getCorpusLength(corpus):
-    return
+    total_length =sum(len(Row) for Row in corpus)
+    return total_length 
 
 
 '''
@@ -37,7 +53,8 @@ Parameters: 2D list of strs
 Returns: list of strs
 '''
 def buildVocabulary(corpus):
-    return
+    result= list(set(i for j in corpus for i in j))
+    return result
 
 
 '''
@@ -47,7 +64,7 @@ Parameters: 2D list of strs
 Returns: dict mapping strs to ints
 '''
 def countUnigrams(corpus):
-    return
+   return 
 
 
 '''
@@ -286,9 +303,12 @@ def scatterPlot(xs, ys, labels, title):
 # This code runs the test cases to check your work
 if __name__ == "__main__":
     print("\n" + "#"*15 + " WEEK 1 TESTS " +  "#" * 16 + "\n")
-    test.week1Tests()
-    print("\n" + "#"*15 + " WEEK 1 OUTPUT " + "#" * 15 + "\n")
-    test.runWeek1()
+    # test.week1Tests()
+    # print("\n" + "#"*15 + " WEEK 1 OUTPUT " + "#" * 15 + "\n")
+    # test.runWeek1()
+    test.testLoadBook()
+    test.testGetCorpusLength()
+    test.testBuildVocabulary()   
 
     ## Uncomment these for Week 2 ##
 """
