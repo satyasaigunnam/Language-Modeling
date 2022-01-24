@@ -263,6 +263,7 @@ Parameters: 2D list of strs
 Returns: None
 '''
 def graphTop50Words(corpus):
+    import matplotlib.pyplot as plt
     count_on=countUnigrams(corpus)
     words_no=buildVocabulary(corpus)
     probs=buildUnigramProbs(words_no,count_on,getCorpusLength(corpus))
@@ -293,6 +294,12 @@ Parameters: 2D list of strs ; str
 Returns: None
 '''
 def graphTopNextWords(corpus, word):
+    count_no=countUnigrams(corpus)
+    count_no=countBigrams(corpus)
+    probs=buildBigramProbs(count_no,count_no)
+    top_words=getTopWords(10, probs[word]["words"], probs[word]["probs"], ignore)
+    barPlot(top_words, "top next words")
+
     return
 
 
@@ -417,7 +424,8 @@ if __name__ == "__main__":
     # test.testBuildBigramProbs()
     # test.testGetTopWords()
     # test.testGenerateTextFromUnigrams()
-    test.testGenerateTextFromBigrams()
+    # test.testGenerateTextFromBigrams()
+    test.runWeek3()
     
 
     ## Uncomment these for Week 2 ##
