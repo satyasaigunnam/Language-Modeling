@@ -262,7 +262,7 @@ def graphTop50Words(corpus):
     
     count_on=countUnigrams(corpus)
     words_no=buildVocabulary(corpus)
-    probs=buildUnigramProbs(words_no,count_on,len(corpus))
+    probs=buildUnigramProbs(words_no,count_on,getCorpusLength(corpus))
     top_words=getTopWords(50, words_no, probs, ignore)
     barPlot(top_words, "top 50 words")
     return
@@ -277,7 +277,7 @@ Returns: None
 def graphTopStartWords(corpus):
     count=countStartWords(corpus)
     words=getStartWords(corpus)
-    probs=buildUnigramProbs(words,count,len(corpus))
+    probs=buildUnigramProbs(words,count,getCorpusLength(corpus))
     top_words=getTopWords(50, words, probs, ignore)
     barPlot(top_words, "top start words")
     return
@@ -290,9 +290,9 @@ Parameters: 2D list of strs ; str
 Returns: None
 '''
 def graphTopNextWords(corpus, word):
-    count_no=countUnigrams(corpus)
-    count_o=countBigrams(corpus)
-    probs=buildBigramProbs(count_no,count_o)
+    count_ui=countUnigrams(corpus)
+    count_b=countBigrams(corpus)
+    probs=buildBigramProbs(count_ui,count_b)
     top_words=getTopWords(10, probs[word]["words"], probs[word]["probs"], ignore)
     barPlot(top_words, "top next words")
 
@@ -353,9 +353,7 @@ Returns: None
 '''
 def graphTopWordsSideBySide(corpus1, name1, corpus2, name2, numWords, title):
     new=setupChartData(corpus1,corpus2,numWords)
-    # xValues=new["topWords"]
-    # values1=new["corpus1Probs"]
-    # values2=new["corpus2Probs"]
+   
     sideBySideBarPlots(new["topWords"], new["corpus1Probs"], new["corpus2Probs"], name1, name2, title)
     return
 
@@ -368,9 +366,7 @@ Returns: None
 '''
 def graphTopWordsInScatterplot(corpus1, corpus2, numWords, title):
     new=setupChartData(corpus1,corpus2,numWords)
-    # labels=new["topWords"]
-    # xs=new["corpus1Probs"]
-    # ys=new["corpus2Probs"]
+    
     scatterPlot(new["corpus1Probs"],new["corpus2Probs"], new["topWords"], title)
     return
 
