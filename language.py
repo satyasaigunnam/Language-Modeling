@@ -10,6 +10,7 @@ from pickle import APPEND, EMPTY_LIST
 from re import I
 from sqlite3 import Row
 from tkinter.tix import COLUMN
+from types import new_class
 from unittest import result
 import language_tests as test
 
@@ -232,7 +233,20 @@ Parameters: int ; list of strs ; list of floats ; dict mapping strs to (dicts ma
 Returns: str
 '''
 def generateTextFromBigrams(count, startWords, startWordProbs, bigramProbs):
-    return
+    new_string=""
+    list1=[]    #["dear", "sir"]
+    for i in range (count):
+        if len(list1)==0 or list1[-1]==".":
+            ramdomtxt=choices(startWords,startWordProbs) #["dear"]
+            list1=list1+ramdomtxt
+        else:
+            lwords=list1[-1]
+            word=bigramProbs[lwords]["words"]  #[ "sir", "madam" ]
+            prob=bigramProbs[lwords]["probs"]   #[0.5, 0.5] 
+            list1=list1+choices(word,prob)
+    for i in list1:
+        new_string=new_string+" "+i
+    return new_string
 
 
 ### WEEK 3 ###
@@ -392,7 +406,8 @@ if __name__ == "__main__":
     # test.testBuildUnigramProbs()
     # test.testBuildBigramProbs()
     # test.testGetTopWords()
-    test.testGenerateTextFromUnigrams()
+    # test.testGenerateTextFromUnigrams()
+    test.testGenerateTextFromBigrams()
     
 
     ## Uncomment these for Week 2 ##
