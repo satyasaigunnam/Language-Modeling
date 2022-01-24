@@ -279,7 +279,7 @@ def graphTopStartWords(corpus):
     words=getStartWords(corpus)
     probs=buildUnigramProbs(words,count,len(corpus))
     top_words=getTopWords(50, words, probs, ignore)
-    # barPlot(top_words, "top start words")
+    barPlot(top_words, "top start words")
     return
 
 
@@ -291,10 +291,10 @@ Returns: None
 '''
 def graphTopNextWords(corpus, word):
     count_no=countUnigrams(corpus)
-    count_no=countBigrams(corpus)
-    probs=buildBigramProbs(count_no,count_no)
+    count_o=countBigrams(corpus)
+    probs=buildBigramProbs(count_no,count_o)
     top_words=getTopWords(10, probs[word]["words"], probs[word]["probs"], ignore)
-    # barPlot(top_words, "top next words")
+    barPlot(top_words, "top next words")
 
     return
 
