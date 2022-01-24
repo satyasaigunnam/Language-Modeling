@@ -262,7 +262,9 @@ graphTop50Words(corpus)
 Parameters: 2D list of strs
 Returns: None
 '''
+
 def graphTop50Words(corpus):
+   
     return
 
 
@@ -406,8 +408,11 @@ if __name__ == "__main__":
     # test.testBuildUnigramProbs()
     # test.testBuildBigramProbs()
     # test.testGetTopWords()
-    # test.testGenerateTextFromUnigrams()
+    #  test.testGenerateTextFromUnigrams()
     test.testGenerateTextFromBigrams()
+   
+    
+
     
 
     ## Uncomment these for Week 2 ##
@@ -421,5 +426,5 @@ if __name__ == "__main__":
     ## Uncomment these for Week 3 ##
 """
     print("\n" + "#"*15 + " WEEK 3 OUTPUT " + "#" * 15 + "\n")
-    test.runWeek3()
+     test.runWeek3()
 """
